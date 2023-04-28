@@ -2,7 +2,9 @@
 
 // let arr = [34, 12, 78, 82, 0];
 let arr = [-1, 4, 5, 67, 98, 0, 3.14]
-function findMinMax(min, max) {
+function findMinMax(arr) {
+let min=arr[0];
+let max=arr[0]
   for (let i = 0; i < arr.length; i++) {
     if (typeof arr[i] === 'string') {
       console.log('please don\'t use string in your array');
@@ -17,7 +19,7 @@ function findMinMax(min, max) {
   console.log(min);
   console.log(max)
 }
-findMinMax(arr[0], arr[0])
+findMinMax(arr)
 
 // step by step explanation;
 // step 1  min=34 max=34;
