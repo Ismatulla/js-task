@@ -1,99 +1,106 @@
-// 1st task
+// 28-dars-topshirig'i
+// 1ST TASK
+// function checkTitle(title) {
+//   let arrFromString = title.split(' ')
+//   let result = arrFromString.map(arr => arr[0] === arr[0].toUpperCase())
+//   return result.includes(false) ? false : true
+// }
 
-// let arr = [34, 12, 78, 82, 0];
-let arr = [-1, 4, 5, 67, 98, 0, 3.14]
-function findMinMax(min, max) {
-  for (let i = 0; i < arr.length; i++) {
-    if (typeof arr[i] === 'string') {
-      console.log('please don\'t use string in your array');
-      return
-    }
-    if (arr[i] < min) {
-      min = arr[i]
-    } else if (arr[i] > max) {
-      max = arr[i]
-    }
-  }
-  console.log(min);
-  console.log(max)
+// 2ND TASK
+
+// function countVowels(str) {
+//   const vowels = ['a', 'e', 'i', 'o', 'u']
+//   let counter = 0
+//   for (let i = 0; i < str.length; i++) {
+//     for (let j = 0; j < vowels.length; j++) {
+//       if (str[i] === vowels[j]) {
+//         counter++
+//       }
+//     }
+//   }
+//   console.log(counter)
+//   return counter
+// }
+// more optimal solution
+// here has is property that is availabel on  Set() it checks and returns boolean
+// so we have to use "has" ,thats why we used Set()
+
+// function countVowels(str) {
+//   const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+//   let counter = 0;
+//   for (const char of str) {
+//     if (vowels.has(char.toLowerCase())) {
+//       counter++;
+//     }
+//   }
+//   console.log(counter);
+//   return counter;
+// }
+
+// countVowels('Celebration')
+
+
+
+// 3RD TASK
+// 1st way of solution
+// function findLargestNums(arr) {
+
+//   let newArr = []
+
+//   arr.map(innerArr => {
+
+//     let largestNum = innerArr[0]
+
+//     innerArr.forEach(arr => {
+//       if (largestNum < arr) {
+//         largestNum = arr
+//       }
+//     })
+//     newArr.push(largestNum)
+//   })
+//   console.log(newArr)
+//   return newArr
+// }
+// 2nd way of solution where we use math.Max() and destructuring
+// function findLargestNums(arr) {
+//   let result = arr.map(innerArr => Math.max(...innerArr));
+//   console.log(result)
+//   return result
+// }
+
+// findLargestNums([[4, 2, 7, 1], [20, 70, 40, 90], [1, 2, 0]])
+// findLargestNums([[-34, -54, -74], [-32, -2, -65], [-54, 7, -43]])
+
+
+// 4TH TASK
+
+function formatPhoneNumber(numbers) {
+  const result1 = numbers.splice(0, 3).join('')
+  const result2 = numbers.splice(0, 3).join('')
+  const result3 = numbers.join('')
+  console.log(numbers.join(''))
+  console.log(`(${result1}) ${result2}-${result3}`)
+  return `(${result1}) ${result2}-${result3}`
 }
-findMinMax(arr[0], arr[0])
+// formatPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
+// formatPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) ➞ "(123) 456-7890"
 
-// step by step explanation;
-// step 1  min=34 max=34;
-// step 2 first if condition fulfilled (arr[i]=12<min=34)so min=>12
-// step3 min=12 arr[i]=78 max[0]=34 second if condition fulfillied (arr[i]>max)=>max=78;
-//step 4 arr[i]=82; min=12; max=78 again second if condition fulfilled so max=>82
-//step 5 arr[i]=43 max=82; min=12; here 43 not bigger than 82 and less than 12 so condition remains same ;
 
-// OUTPUT will be(12,82)
+// 5TH TASK
 
-// 2nd task
-function textToNumber(num) {
-  if (num === 9) {
-    console.log('nine')
-    return
-  }
-};
+function isSymmetrical(num) {
+  const result1 = String(num)
+  const result2 = result1.split('').reverse().join('')
+  const result3 = Number(result2)
+  const result4 = num === result3 ? true : false
 
-function textToNumbers(num, string = 'default text') {
-  switch (num) {
-    case 0:
-      console.log(`ZERO ${string}`)
-      break;
-    case 1:
-      console.log(`ONE ${string}`)
-      break;
-    case 2:
-      console.log(`TWO ${string}`)
-    case 3:
-      console.log(`THREE ${string}`)
-      break;
-    case 4:
-      console.log(`FOUR ${string}`)
-      break;
-    case 5:
-      console.log(`FIVE ${string}`)
-      break;
-    case 6:
-      console.log(`SIX ${string}`)
-      break;
-    case 7:
-      console.log(`SEVEN ${string}`)
-      break;
-    case 8:
-      console.log(`EIGHT ${string}`)
-    case 9:
-      console.log(`NINE ${string}`)
-    default:
-      console.log('pls enter a valid number !')
-  }
+  return result4
 }
+isSymmetrical(10019)
+// isSymmetrical(7227) ➞ true
 
-textToNumbers(0);
-
-//  3rd task 
-const list = [5,3,7,3,5,7,1]
-let uniqNum
-function findSingleNumber(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    let counter = 0
-    for (let j = 0; j < arr.length; j++) {
-      if (arr[i] == arr[j]) {
-        counter++
-      }
-    }
-    if (counter === 1) {
-      uniqNum = arr[i]
-      break
-
-    }
-  }
-  console.log(uniqNum)
+//optimal way 
+function isSymmetrical(num) {
+  const reversedNum = Number(String(num).split('').reverse().join(''));
+  return num === reversedNum;
 }
-findSingleNumber(list)
-
-// step by step explanation
-// outer loop gets one and one will be compared with each number which is coming in the inner loop for example 1 will be compared to all list and if there is a match, counter will be incremented. counter++;  1=>[1,2,3,3,2,1,4] has 2 matches so counter=2;
-// when it is four 4=>[1,2,3,3,2,1,4] there is only one match counter=1 so if counter is one , outer loop will be broken here and result is printed 
-
