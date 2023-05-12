@@ -50,4 +50,23 @@ function isPandigital(num) {
   return true
 
 }
-isPandigital(8146327815320)
+isPandigital(8146327815320);
+
+// 30-dars-topshirig'i
+
+// tuckin array
+// 1st task
+function tuckIn(arr1, arr2) {
+  return [arr1[0], ...arr2, arr1[1]]
+}
+
+// 2nd task
+function sortByLength(arr) {
+  return arr.sort((a, b) => a.length - b.length)
+}
+
+// 3rd task
+
+function sortIt(arr) {
+  return arr.sort()
+}
